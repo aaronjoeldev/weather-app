@@ -1,13 +1,161 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  font-family: 'montseratt', sans-serif;
+}
+
+.app{
+  background-image: url(./assets/warm.jpg);
+  background-size: cover;
+  background-position: center;
+  transition: 0.4 ease-out;
+}
+
+.app.warm{
+  background-image: url(./assets/warm.jpg);
+}
+
+.app.cold{
+  background-image: url(./assets/cold.jpg);
+}
+
+.app.night{
+  background-image: url(./assets/night.jpg);
+}
+
+main{
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
+  padding: 25px;
+}
+
+.search-box{
+  width: 100%;
+  margin: 0 0 75px;
+}
+
+.search-box .search-bar{
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius:16px;
+  box-shadow: 0px 5px rbga(0,0,0,0.2);
+  color: #313131;
+  font-size: 2em;
+  transition: 0.4s ease;
+}
+
+.search-box .search-bar:focus{
+  background-color: rgba(255,255,255,0.75);
+}
+
+.anzeige{
+  width: 40%;
+    min-height: 50vh;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 16px;
+    box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.55);
+    padding: 3em;
+    margin: 0 auto;
+    display: grid;
+    grid-auto-columns: 1fr;
+   grid-auto-flow: column;
+    grid-template:
+        'location weather'
+        'weather-box weather';
+
+}
+.date{
+  font-size: 1.5em;
+}
+.location{
+  font-size: 3em;
+}
+.location-box{
+  grid-area: location;
+}
+.weather-box{
+  grid-area: weather-box;
+}
+.weatherdes{
+  grid-area: weather;
+  text-align: center;
+  align-self: center;
+}
+.weather{
+  font-size: 2em;
+}
+.beschreibung{
+  color: rgba(0,0,0,0.5);
+}
+.temp{
+  font-size: 7em;
+  text-align: center;
+  font-weight: 600;
+}
+
+.weathericon > img{
+  width: 25%;
+}
+
+.forecast{
+  display: flex;
+  width: 45%;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.forecast > div{
+  background: white;
+  border-radius: 16px;
+  max-width: 17%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 20vh;
+  justify-content: space-around;
+  box-shadow: 1px 2px 11px 3px rgba(0,0,0,0.5);
+  margin-top: -3em;
+}
+
+.forecast img{
+  width: 40%;
+}
+
+.day{
+  font-weight: 600;
+}
+
+.ftemp{
+  font-weight: 600;
+}
+
+@media only screen and (max-width:600px){
+  .anzeige{
+    width: 100%;
+    grid-template:
+    'location'
+    'weather-box'
+    'weather';
+  }
+  .forecast{
+    width: 100%;
+    margin-top: 2em;
+  }
+  .search-box .search-bar {
+    width: 100%;
+  }
 }
